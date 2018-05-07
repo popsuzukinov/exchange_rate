@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Financerate</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag %>
+  <%= favicon_link_tag 'favicon.ico' %>
+</head>
+<body>
+<%= link_to image_tag('logo2.png'), '/sales/high' %>
+<a href="/sales/high" class="top">TOP</a>
+<a href="/test/gaitame3" class="top">為替</a>
+<a href="/data/menu" class="top">過去の株価</a>
+<a href="/news/index2" class="top">ニュース</a>
+<%= yield %>
+
+</body>
+</html>

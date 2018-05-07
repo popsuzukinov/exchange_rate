@@ -1,0 +1,33 @@
+<table border="1" cellpadding="4">
+  <h1>東証二部</h1>
+  <p>
+  <%= link_to '東証二部 2016年6月', '/data/show2/1' %>
+  <a href="http://192.168.33.10:3000/data/downloadcsv2_1/2tou1.csv" download="2tou1.csv"> CSV_DL</a>
+  </p>
+  <p>
+  <%= link_to '東証二部 2016年5月', '/data/show2/2' %>
+  <a href="http://192.168.33.10:3000/data/downloadcsv2_2/2tou2.csv" download="2tou2.csv"> CSV_DL</a>
+  </p><br>
+  <tr>
+    <th>日付</th>
+    <th>出来高</th>
+    <th>売買代金</th>
+    <th>全銘柄数</th>
+    <th>値付き</th>
+    <th>値上がり</th>
+    <th>値下がり</th>
+    <th>比較不可</th>
+  </tr>
+<% @records.each do |record| -%>
+  <tr>
+    <td><%= record[0] %></td>
+    <td><%= record[1] %></td>
+    <td><%= record[2] %></td>
+    <td><%= record[3] %></td>
+    <td><%= record[4] %></td>
+    <td><%= record[5] %></td>
+    <td><%= record[6] %></td>
+    <td><%= record[7] %></td>
+  </tr>
+<% end -%>
+</table>

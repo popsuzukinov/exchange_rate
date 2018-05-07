@@ -1,0 +1,896 @@
+@import url(../../../stylesheets/application.css);
+
+/*
+ * color: #2A5685 -> #0c4d7f;
+ *
+ * color: #444 -> #222;
+ * color: #555 -> #333;
+ * color: #484848 -> #222;
+ * color: #666 -> #484848;
+ * color: #777 -> #484848;
+ * color: #808080 -> #484848;
+ * color: #999 -> #666;
+ *
+ * opacity: 0.4 -> 0.7;
+ *
+ */
+
+body {
+  font-family: Meiryo, "Hiragino Kaku Gothic Pro", "MS PGothic", Verdana, sans-serif;
+  font-size: 13px;
+  color: #222;
+}
+
+#main {
+  background-color: #fafcff;
+  /* HSV(216,2,100) */
+}
+
+#header {
+  background: #455b9d;
+  background: linear-gradient(#4f68b5, #455b9d, #455b9d);
+  /* HSV(222, 50, 76) -> (222, 50, 68) -> (222, 50, 68) */
+}
+
+h1, h2, h3, h4 {
+  font-family: Meiryo, "Hiragino Kaku Gothic Pro", "MS PGothic", Verdana, sans-serif;
+}
+
+pre, code {
+  font-family: Consolas, Menlo, "Liberation Mono", Courier, monospace;
+}
+
+#header h1 {
+  font-size: 22px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#content h1, h2, h3, h4 {
+  color: #222;
+}
+
+#sidebar h3 {
+  color: #484848;
+}
+
+#main-menu li a {
+  padding: 5px 8px 4px 8px;
+  background-position: 6px 50%;
+  background-repeat: no-repeat;
+  font-size: 11px;
+  font-weight: normal;
+  border-radius: 3px 3px 0px 0px;
+  &:hover, &:active {
+    padding: 5px 8px 4px 8px;
+    background-position: 6px 50%;
+    background-repeat: no-repeat;
+    font-size: 11px;
+    font-weight: normal;
+    border-radius: 3px 3px 0px 0px;
+  }
+  &.selected {
+    padding: 5px 8px 4px 8px;
+    background-position: 6px 50%;
+    background-repeat: no-repeat;
+    font-size: 11px;
+    font-weight: normal;
+    border-radius: 3px 3px 0px 0px;
+    &:hover {
+      padding: 5px 8px 4px 8px;
+      background-position: 6px 50%;
+      background-repeat: no-repeat;
+      font-size: 11px;
+      font-weight: normal;
+      border-radius: 3px 3px 0px 0px;
+      font-weight: bold;
+      color: #222;
+      box-shadow: 3px -2px 2px rgba(0, 0, 0, 0.1);
+    }
+    font-weight: bold;
+    color: #222;
+    box-shadow: 3px -2px 2px rgba(0, 0, 0, 0.1);
+  }
+  &.overview {
+    padding-left: 24px;
+    background-image: url(../images/information.png);
+    &:hover {
+      padding-left: 24px;
+      background-image: url(../images/information.png);
+    }
+  }
+  &.activity {
+    padding-left: 24px;
+    background-image: url(../images/activities.png);
+    &:hover {
+      padding-left: 24px;
+      background-image: url(../images/activities.png);
+    }
+  }
+  &.roadmap {
+    padding-left: 24px;
+    background-image: url(../images/package.png);
+    &:hover {
+      padding-left: 24px;
+      background-image: url(../images/package.png);
+    }
+  }
+  &.issues {
+    padding-left: 24px;
+    background-image: url(../images/ticket.png);
+    &:hover {
+      padding-left: 24px;
+      background-image: url(../images/ticket.png);
+    }
+  }
+  &.new-issue {
+    padding-left: 24px;
+    background-image: url(../images/ticket_add.png);
+    &:hover {
+      padding-left: 24px;
+      background-image: url(../images/ticket_add.png);
+    }
+  }
+  &.gantt, &.lgc {
+    padding-left: 24px;
+    background-image: url(../images/gantt.png);
+    &:hover {
+      padding-left: 24px;
+      background-image: url(../images/gantt.png);
+    }
+  }
+  &.calendar {
+    padding-left: 24px;
+    background-image: url(../images/calendar.png);
+    &:hover {
+      padding-left: 24px;
+      background-image: url(../images/calendar.png);
+    }
+  }
+  &.news {
+    padding-left: 24px;
+    background-image: url(../images/news.png);
+    &:hover {
+      padding-left: 24px;
+      background-image: url(../images/news.png);
+    }
+  }
+  &.documents {
+    padding-left: 24px;
+    background-image: url(../images/oxygen/document-multiple.png);
+    &:hover {
+      padding-left: 24px;
+      background-image: url(../images/oxygen/document-multiple.png);
+    }
+  }
+  &.wiki {
+    padding-left: 24px;
+    background-image: url(../images/page_edit.png);
+    &:hover {
+      padding-left: 24px;
+      background-image: url(../images/page_edit.png);
+    }
+  }
+  &.boards {
+    padding-left: 24px;
+    background-image: url(../images//comments.png);
+    &:hover {
+      padding-left: 24px;
+      background-image: url(../images//comments.png);
+    }
+  }
+  &.files {
+    padding-left: 24px;
+    background-image: url(../images/oxygen/package-x-generic.png);
+    &:hover {
+      padding-left: 24px;
+      background-image: url(../images/oxygen/package-x-generic.png);
+    }
+  }
+  &.repository {
+    padding-left: 24px;
+    background-image: url(../images/database_gear.png);
+    &:hover {
+      padding-left: 24px;
+      background-image: url(../images/database_gear.png);
+    }
+  }
+  &.settings {
+    padding-left: 24px;
+    background-image: url(../images/project_settings.png);
+    &:hover {
+      padding-left: 24px;
+      background-image: url(../images/project_settings.png);
+    }
+  }
+}
+
+/***** Links *****/
+
+a {
+  &.issue.closed {
+    color: #666;
+    &:link, &:visited {
+      color: #666;
+    }
+  }
+  &#toggle-completed-versions {
+    color: #666;
+  }
+}
+
+/***** Tables *****/
+
+table {
+  &.list {
+    font-size: 12px;
+    th {
+      padding: 4px 2px;
+    }
+  }
+  &.attributes {
+    font-size: 12px;
+    td {
+      padding: 1px;
+    }
+  }
+}
+
+tr {
+  &.changeset td {
+    &.author, &.committed_on {
+      text-align: center;
+      width: 15%;
+    }
+  }
+  &.version.closed {
+    color: #666;
+    a {
+      color: #666;
+    }
+  }
+}
+
+/* assinged to me, created by me */
+
+table.list.issues tr.closed td {
+  opacity: 0.7;
+}
+
+tr {
+  &.assigned-to-me td.assigned_to, &.created-by-me td.author {
+    font-weight: bold;
+    font-size: 11px;
+  }
+}
+
+td.parent {
+  white-space: normal;
+  text-align: left;
+}
+
+/* overdue */
+
+tr {
+  &.odd.overdue {
+    background: #ffd8b2;
+  }
+  &.even.overdue {
+    background: #ffe5cc;
+  }
+  &.odd.overdue td, &.even.overdue td {
+    border-color: #fcc;
+  }
+  &.odd.priority-highest {
+    color: #900;
+    font-weight: bold;
+  }
+}
+
+/* Issues grid styles by priorities (provided by Wynn Netherland) */
+
+/* table.list tr.issue a { color: #484848; } _NO__DOTCOMMA__AFTER__*/
+
+table.list tbody tr.odd.priority-highest:hover {
+  color: #900;
+  font-weight: bold;
+}
+
+tr {
+  &.odd.priority-highest {
+    background: #ffc4c4;
+  }
+  &.even.priority-highest {
+    color: #900;
+    font-weight: bold;
+  }
+}
+
+table.list tbody tr.even.priority-highest:hover {
+  color: #900;
+  font-weight: bold;
+}
+
+tr {
+  &.odd.priority-highest td {
+    border-color: #ffb4b4;
+  }
+  &.even.priority-highest {
+    td {
+      border-color: #ffb4b4;
+    }
+    background: #ffd4d4;
+  }
+  &.priority-highest {
+    a, &:hover a {
+      color: #900;
+    }
+  }
+  &.odd.priority-high2 {
+    color: #900;
+  }
+}
+
+table.list tbody tr.odd.priority-high2:hover {
+  color: #900;
+}
+
+tr {
+  &.odd.priority-high2 {
+    background: #ffc4c4;
+  }
+  &.even.priority-high2 {
+    color: #900;
+  }
+}
+
+table.list tbody tr.even.priority-high2:hover {
+  color: #900;
+}
+
+tr {
+  &.odd.priority-high2 td {
+    border-color: #ffb4b4;
+  }
+  &.even.priority-high2 {
+    td {
+      border-color: #ffb4b4;
+    }
+    background: #ffd4d4;
+  }
+  &.priority-high2 a, &.odd.priority-high3 {
+    color: #900;
+  }
+}
+
+table.list tbody tr.odd.priority-high3:hover {
+  color: #900;
+}
+
+tr {
+  &.odd.priority-high3 {
+    background: #fee;
+  }
+  &.even.priority-high3 {
+    color: #900;
+  }
+}
+
+table.list tbody tr.even.priority-high3:hover {
+  color: #900;
+}
+
+tr {
+  &.odd.priority-high3 td {
+    border-color: #fcc;
+  }
+  &.even.priority-high3 {
+    td {
+      border-color: #fcc;
+    }
+    background: #fff2f2;
+  }
+  &.priority-high3 a {
+    color: #900;
+  }
+  &.odd.priority-lowest {
+    color: #559;
+  }
+}
+
+table.list tbody tr.odd.priority-lowest:hover {
+  color: #559;
+}
+
+tr {
+  &.odd.priority-lowest {
+    background: #eaf7ff;
+  }
+  &.even.priority-lowest {
+    color: #559;
+  }
+}
+
+table.list tbody tr.even.priority-lowest:hover {
+  color: #559;
+}
+
+tr {
+  &.odd.priority-lowest td {
+    border-color: #add7f3;
+  }
+  &.even.priority-lowest {
+    td {
+      border-color: #add7f3;
+    }
+    background: #f2faff;
+  }
+  &.priority-lowest a {
+    color: #559;
+  }
+}
+
+#watchers a.delete {
+  opacity: 0.7;
+}
+
+.box {
+  color: #222;
+  border-radius: 3px;
+  word-wrap: break-word;
+}
+
+.contextual {
+  font-size: 12px;
+}
+
+.issue .contextual {
+  margin: 0;
+  padding: 2px 3px;
+  border-radius: 3px;
+  background: #fffff2;
+  border: 1px solid #e6e6cf;
+}
+
+/* submit繝懊ち繝ｳ繧呈款縺励ｄ縺吶￥ */
+
+input {
+  &[type="submit"], &[type="reset"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  &[type="text"] {
+    font-family: "Osaka-Mono", "MS Gothic", sans-serif;
+    font-size: 100%;
+  }
+}
+
+/* 繝�く繧ｹ繝医�繝�け繧ｹ縺ｧ遲牙ｹ�ヵ繧ｩ繝ｳ繝医ｒ菴ｿ逕ｨ */
+
+textarea.wiki-edit {
+  font-size: 14px;
+  font-family: "Osaka-Mono", "MS Gothic", sans-serif;
+  letter-spacing: normal;
+  line-height: 130%;
+}
+
+div {
+  &.issue {
+    background-color: #ffffe6;
+    /* HSV(60,10,100) */
+    border-radius: 3px;
+    div.subject p, .next-prev-links {
+      color: #666;
+    }
+  }
+  &#issue_tree .contextual a[href*="/issues/new"] {
+    background-image: url("../images/ticket_add.png");
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    padding-bottom: 3px;
+    padding-left: 20px;
+    padding-top: 2px;
+  }
+  &#relations .contextual a {
+    background-image: url("../images/add.png");
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    padding-bottom: 3px;
+    padding-left: 20px;
+    padding-top: 2px;
+  }
+}
+
+.buttons {
+  font-size: 12px;
+}
+
+div#activity {
+  dt .time, dd span.description {
+    color: #484848;
+  }
+}
+
+#search-results dd span.description, table#time-report tbody tr {
+  color: #484848;
+}
+
+form {
+  .attributes {
+    margin-bottom: 8px;
+    p {
+      padding-top: 1px;
+      padding-bottom: 2px;
+    }
+  }
+  &#issue-form small {
+    font-size: 11px;
+  }
+}
+
+div.wiki-page .contextual a {
+  opacity: 0.7;
+}
+
+ul.projects div.root a.project {
+  font-family: Meiryo, "Hiragino Kaku Gothic Pro", "MS PGothic";
+}
+
+p.other-formats {
+  font-size: 12px;
+  color: #484848;
+}
+
+/***** Tabs *****/
+
+#content .tabs ul li a {
+  color: #666;
+  &.selected {
+    color: #333;
+  }
+}
+
+/***** Wiki *****/
+
+div.wiki {
+  pre {
+    /* farend_basic: pre縺ｧ讓ｪ繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ繝舌�繧定｡ｨ遉ｺ縺輔○縺壹↓謚倥ｊ霑斐☆ */
+    border-radius: 3px;
+    white-space: -moz-pre-wrap;
+    /* Mozilla */
+    white-space: -pre-wrap;
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    white-space: pre-wrap;
+    /* CSS3 */
+    word-wrap: break-word;
+    /* IE 5.5+ */
+  }
+  p {
+    line-height: 165%;
+  }
+  li {
+    margin-bottom: 4px;
+  }
+}
+
+/***** My page layout *****/
+
+.mypage-box {
+  color: #222;
+}
+
+#top-menu {
+  background-color: #2C3957;
+  a {
+    font-weight: normal;
+  }
+  #loggedas {
+    color: #ccc;
+    a {
+      font-weight: bold;
+    }
+  }
+  a {
+    &.home {
+      background-image: url(../images/home.png);
+    }
+    &.my-page {
+      background-image: url(../images/user.png);
+    }
+    &.projects {
+      background-image: url(../images/projects.png);
+    }
+    &.administration {
+      background-image: url(../images/wrench.png);
+    }
+    &.help {
+      background-image: url(../images/help.png);
+    }
+    &.my-account {
+      background-image: url(../images/user_preferences.png);
+    }
+    &.logout {
+      background-image: url(../images/oxygen/media-playback-stop-8.png);
+    }
+    &.login {
+      background-image: url(../images/oxygen/media-playback-start-8.png);
+    }
+    &.register {
+      background-image: url(../images/user_add.png);
+    }
+    &.home, &.my-page, &.projects, &.administration, &.help, &.my-account, &.logout, &.login, &.register {
+      background-position: 0% 40%;
+      background-repeat: no-repeat;
+      padding-left: 20px;
+      padding-top: 2px;
+      padding-bottom: 3px;
+    }
+  }
+}
+
+a {
+  &.atom {
+    background: url(../images/oxygen/application-rss%2Bxml.png) no-repeat 0px 0px;
+    padding: 0px 0px 0px 18px;
+  }
+  &.csv {
+    background: url(../images/oxygen/text-csv.png) no-repeat 0px 0px;
+    padding: 0px 0px 0px 18px;
+  }
+  &.txt {
+    background: url(../images/oxygen/text-plain.png) no-repeat 0px 0px;
+    padding: 0px 0px 0px 18px;
+  }
+  &.html {
+    background: url(../images/oxygen/text-html.png) no-repeat 0px 0px;
+    padding: 0px 0px 0px 18px;
+  }
+  &.pdf {
+    background: url(../images/oxygen/application-pdf.png) no-repeat 0px 0px;
+    padding: 0px 0px 0px 18px;
+  }
+  &.png {
+    background: url(../images/oxygen/image-x-generic.png) no-repeat 0px 0px;
+    padding: 0px 0px 0px 18px;
+  }
+}
+
+#login-form {
+  table {
+    border: #bbb solid 1px;
+    border-radius: 4px;
+    background: #f9f9f9 url("../images/redmine-logo-250px.gif") no-repeat 50% 25px;
+    padding-top: 110px;
+    margin-top: 55px;
+  }
+  input {
+    &#username, &#password {
+      font-size: 15px;
+      padding: 3px;
+    }
+  }
+}
+
+/***** contextual menu *****/
+
+div.contextual a[href$="/issues"] {
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  padding-bottom: 3px;
+  padding-left: 20px;
+  padding-top: 2px;
+}
+
+a {
+  &[href$="/time_entries"], &[href$="/activity"] {
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    padding-bottom: 3px;
+    padding-left: 20px;
+    padding-top: 2px;
+  }
+}
+
+div {
+  &.contextual a {
+    &[href$="/issues"] {
+      background-image: url("../images/ticket.png");
+    }
+    &[href$="/time_entries"] {
+      background-image: url("../images/time.png");
+    }
+    &[href$="/activity"] {
+      background-image: url("../images/activities.png");
+    }
+  }
+  &.flash {
+    border-radius: 3px;
+  }
+}
+
+/***** flash *****/
+
+.nodata, .warning {
+  border-radius: 3px;
+}
+
+div.attributes[id="attributes"] {
+  border: 1px 0 0 0 0 solid #f00;
+}
+
+/***** calendar *****/
+
+table.cal div {
+  &.closed {
+    text-decoration: line-through;
+  }
+  &.overdue {
+    background: #ffe5cc;
+  }
+  &.assigned-to-me a {
+    font-weight: bold;
+  }
+}
+
+/***** boards *****/
+
+div.message {
+  background: #FFFFE6;
+  border: solid 1px #D7D7D7;
+  border-radius: 3px;
+  padding: 6px;
+  margin-bottom: 6px;
+}
+
+/***** attachments *****/
+
+#content .wiki-page + .attachments {
+  border-top: 1px dashed #ccc;
+}
+
+/***** pagination   obsoleted by http://www.redmine.org/issues/21258 *****/
+
+p.pagination > {
+  a:hover {
+    background: #ffffdd;
+  }
+  span.current {
+    font-weight: bold;
+    background: #d9e4ff;
+  }
+  .page {
+    margin-right: 1px;
+    padding: 1px 4px;
+    border: 1px solid #bbb;
+  }
+  a {
+    &.previous {
+      margin-right: 1px;
+      padding: 1px 4px;
+      border: 1px solid #bbb;
+      border-radius: 10px 0 0 10px;
+    }
+    &.next {
+      margin-left: 1px;
+      padding: 1px 4px;
+      border: 1px solid #bbb;
+      border-radius: 0 10px 10px 0;
+    }
+  }
+  span.items {
+    margin-left: 0.3em;
+    margin-right: 0.6em;
+  }
+}
+
+span.per-page span {
+  font-weight: bold;
+}
+
+/* 繧ｵ繧､繝峨ヰ繝ｼ縺ｮ蟷�ｒ迢ｭ縺� */
+
+#sidebar {
+  width: 20%;
+  font-size: 12px;
+}
+
+#content, * html #content {
+  width: 77%;
+}
+
+/* 菴懈�譌･繝ｻ譖ｴ譁ｰ譌･縺ｫ螳滄圀縺ｮ譌･譎ゅｒ陦ｨ遉ｺ */
+
+a[href*="activity"][title*=":"]:before {
+  content: " [" attr(title) "] ";
+}
+
+.author {
+  font-size: 12px;
+}
+
+div.projects.box > ul > li > a {
+  font-weight: bold;
+}
+
+/* history */
+
+#history {
+  padding: 0 1em;
+  margin-bottom: 1em;
+  border-right: 1px solid #d7d7d7;
+  border-bottom: 1px solid #d7d7d7;
+  border-left: 1px solid #d7d7d7;
+  border-radius: 0 0 3px 3px / 0 0 3px 3px;
+}
+
+/* journal */
+
+div.journal {
+  margin-bottom: 0.5em;
+  ul.details {
+    font-size: 12px;
+    color: #444;
+    background: #f6f6f6;
+    border-radius: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-top: 10px;
+    i {
+      &:before {
+        content: '[';
+        font-style: normal;
+      }
+      &:after {
+        content: ']';
+        font-style: normal;
+      }
+    }
+  }
+  div.wiki {
+    margin: 0 0 0 30px;
+  }
+  h4:first-child {
+    font-size: 12px;
+    font-weight: normal;
+    color: #444;
+  }
+}
+
+/* news */
+
+body.controller-news.action-index {
+  h3 {
+    margin-bottom: 4px;
+  }
+  .author {
+    margin-top: 0;
+    border-bottom: 1px dotted #BBBBBB;
+  }
+  .wiki {
+    margin: 12px 0 20px 30px;
+  }
+}
+
+/* 繧｢繧､繧ｳ繝ｳ髢薙�繝槭�繧ｸ繝ｳ繧定ｪｿ謨ｴ縺励※隴伜挨縺励ｄ縺吶￥ */
+
+.contextual .icon, .buttons .icon {
+  margin-left: 5px;
+}
+
+.contextual .icon:first-child, .buttons .icon:first-child {
+  margin-left: 0;
+}
+
+/* 繝ｪ繝昴ず繝医Μ逕ｻ髱｢縺ｧ繧ｳ繝溘ャ繝医Γ繝�そ繝ｼ繧ｸ繧堤岼遶九◆縺帙ｋ */
+
+table.revision-info {
+  color: #959595;
+  a {
+    color: #70A7CD;
+    &:hover {
+      color: #D14848;
+    }
+  }
+}

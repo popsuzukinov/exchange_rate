@@ -1,0 +1,49 @@
+https://s.tradingview.com/widgetembed/?symbol=JP225USD&interval=1&hidetoptoolbar=1&saveimage=0&toolbarbg=f1f3f6&studies=&hideideas=1&theme=White&style=1&timezone=Asia%2FTokyo&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=ja&referral_id=3613&utm_source=nikkei225jp.com&utm_medium=widget&utm_campaign=chart&utm_term=JP225USD
+<p>
+response:  <%= response %>
+</p>
+<p>
+銘柄コード: <%= @symbol %>
+</p>
+<p>
+aaaa:<%= @MARKET_OPEN_MINUTE %>
+</p>
+<p>
+市場: <%= @x %>
+</p>
+<p>
+ティックの長さ: <%= @i %>
+</p>
+<p>
+データ取得期間: <%= @p %>
+</p>
+<p>
+取得値（d=日時,c=終値,o=始値,h=高値,l=安値,v=出来高）: <%= @f %>
+</p>
+<p>
+？: <%= @df %>
+</p>
+<p>
+？: <%= @auto %>
+</p>
+<p>
+開始日時: <%= @ts %>
+</p>
+<p>
+セッションキー: <%= @ei %>
+</p>
+
+<p>
+a:<%= @params0 %>
+</p>
+<p>
+<!-- リクエストパラメタを表示-->
+リクエストパラメタ: <%= @query%>
+</p>
+<!-- 生のjsonを表示-->
+result: <%= @result%>
+</p>
+<p>
+  <!-- エラーメッセージを表示-->
+message: <%= @message%>
+</p>

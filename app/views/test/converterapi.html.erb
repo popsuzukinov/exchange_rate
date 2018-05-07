@@ -1,0 +1,8 @@
+<%= form_tag({ action: :converterapi }, id: 'slide_search', remote: true) do %>
+  <%= text_field_tag :converterapi, '', size: 30 %>
+  <%= submit_tag '検索' %>
+<% end %>
+<ul id="result"></ul>
+<p>
+<%= @https %>
+</p>

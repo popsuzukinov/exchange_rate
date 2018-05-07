@@ -1,0 +1,10 @@
+<h1>RSS テスト</h1>
+
+
+<% @list.each do |li| %>
+
+  <h2>タイトル:<%= li[:title] %></h2>
+  <p><%= li[:summary] %></p>
+  <a href="<%= li[:url] %>">記事へ</a>
+　　<p><%= li[:published] %></p>
+<% end %>

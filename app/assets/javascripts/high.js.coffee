@@ -1,0 +1,163 @@
+$.getJSON 'https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', (data) ->
+  detailChart = undefined
+  $(document).ready ->
+    # make the container smaller and add a second container for the master chart
+    $container = $('#container').css('position', 'relative')
+    # create the detail chart
+
+    createDetail = (masterChart) ->
+      # prepare the detail chart
+      detailData = []
+      detailStart = data[0][0]
+      $.each masterChart.series[0].data, ->
+        if @x >= detailStart
+          detailData.push @y
+        return
+      # create a detail chart referenced by a global variable
+      detailChart = Highcharts.chart('detail-container',
+        chart:
+          marginBottom: 120
+          reflow: false
+          marginLeft: 50
+          marginRight: 20
+          style: position: 'absolute'
+        credits: enabled: false
+        title: text: 'Historical USD to EUR Exchange Rate'
+        subtitle: text: 'Select an area by dragging across the lower chart'
+        xAxis: type: 'datetime'
+        yAxis:
+          title: text: null
+          maxZoom: 0.1
+        tooltip:
+          formatter: ->
+            point = @points[0]
+            '<b>' + point.series.name + '</b><br/>' + Highcharts.dateFormat('%A %B %e %Y', @x) + ':<br/>' + '1 USD = ' + Highcharts.numberFormat(point.y, 2) + ' EUR'
+          shared: true
+        legend: enabled: false
+        plotOptions: series: marker:
+          enabled: false
+          states: hover:
+            enabled: true
+            radius: 3
+        series: [ {
+          name: 'USD to EUR'
+          pointStart: detailStart
+          pointInterval: 24 * 3600 * 1000
+          data: detailData
+        } ]
+        exporting: enabled: false)
+      # return chart
+      return
+
+    # create the master chart
+
+    createMaster = ->
+      Highcharts.chart 'master-container', {
+        chart:
+          reflow: false
+          borderWidth: 0
+          backgroundColor: null
+          marginLeft: 50
+          marginRight: 20
+          zoomType: 'x'
+          events: selection: (event) ->
+            extremesObject = event.xAxis[0]
+            min = extremesObject.min
+            max = extremesObject.max
+            detailData = []
+            xAxis = @xAxis[0]
+            # reverse engineer the last part of the data
+            $.each @series[0].data, ->
+              if @x > min and @x < max
+                detailData.push [
+                  @x
+                  @y
+                ]
+              return
+            # move the plot bands to reflect the new detail span
+            xAxis.removePlotBand 'mask-before'
+            xAxis.addPlotBand
+              id: 'mask-before'
+              from: data[0][0]
+              to: min
+              color: 'rgba(0, 0, 0, 0.2)'
+            xAxis.removePlotBand 'mask-after'
+            xAxis.addPlotBand
+              id: 'mask-after'
+              from: max
+              to: data[data.length - 1][0]
+              color: 'rgba(0, 0, 0, 0.2)'
+            detailChart.series[0].setData detailData
+            false
+        title: text: null
+        xAxis:
+          type: 'datetime'
+          showLastTickLabel: true
+          maxZoom: 14 * 24 * 3600000
+          plotBands: [ {
+            id: 'mask-before'
+            from: data[0][0]
+            to: data[data.length - 1][0]
+            color: 'rgba(0, 0, 0, 0.2)'
+          } ]
+          title: text: null
+        yAxis:
+          gridLineWidth: 0
+          labels: enabled: false
+          title: text: null
+          min: 0.6
+          showFirstLabel: false
+        tooltip: formatter: ->
+          false
+        legend: enabled: false
+        credits: enabled: false
+        plotOptions: series:
+          fillColor:
+            linearGradient: [
+              0
+              0
+              0
+              70
+            ]
+            stops: [
+              [
+                0
+                Highcharts.getOptions().colors[0]
+              ]
+              [
+                1
+                'rgba(255,255,255,0)'
+              ]
+            ]
+          lineWidth: 1
+          marker: enabled: false
+          shadow: false
+          states: hover: lineWidth: 1
+          enableMouseTracking: false
+        series: [ {
+          type: 'area'
+          name: 'USD to EUR'
+          pointInterval: 24 * 3600 * 1000
+          pointStart: data[0][0]
+          data: data
+        } ]
+        exporting: enabled: false
+      }, (masterChart) ->
+        createDetail masterChart
+        return
+      # return chart instance
+      return
+
+    $('<div id="detail-container">').appendTo $container
+    $('<div id="master-container">').css(
+      position: 'absolute'
+      top: 300
+      height: 100
+      width: '100%').appendTo $container
+    # create master and in its callback, create the detail chart
+    createMaster()
+    return
+  return
+
+# ---
+# generated by js2coffee 2.2.0

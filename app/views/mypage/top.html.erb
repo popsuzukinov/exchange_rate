@@ -1,0 +1,86 @@
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>概要 - デモ用プロジェクト - Redmine デモサイト</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Redmine" />
+    <meta name="keywords" content="issue,bug,tracker" />
+    <meta name="csrf-param" content="authenticity_token" />
+    <meta name="csrf-token" content="Z0XRAq2agEOInuRN6sBKggL8J0Xc2RZp0zn8VL+h1JvcR+8SDnZvSno4LWknQVEQPSh1GV5wKFdHTHwAkDd1gg==" />
+    <link rel='shortcut icon' href='/demo/favicon.ico' />
+    <link rel="stylesheet" media="all" href="/app/assets/stylesheets/jquery.css.scss" />
+    <link rel="stylesheet" media="all" href="/app/assets/stylesheets/stylesheets/application.css.scss" />
+    <link rel="stylesheet" media="all" href="/app/assets/stylesheets/responsive.css.scss" />
+    <link rel="stylesheet" media="all" href="/app/assets/stylesheets/button.css.scss" />
+
+    <script src="/app/assets/javascript/jquery.js.coffee"></script>
+    <script src="/app/assets/javascript/application.js.coffee"></script>
+    <script src="/app/assets/javascript/responsive.js.coffee"></script>
+    <script>
+    //<![CDATA[
+    $(window).load(function(){ warnLeavingUnsaved('このページから移動すると、保存されていないデータが失われます。'); });
+    //]]>
+    </script>
+    <script src="/demo/themes/farend_fancy/javascripts/theme.js"></script>
+
+    <!-- page specific tags -->
+    <link rel="alternate" type="application/atom+xml" title="ATOM" href="https://my.redmine.jp/demo/projects/demo/activity.atom" />
+  </head>
+
+    <script src="/app/assets/javascript/menu.js">
+    </script>
+
+  <body>
+    <div id="top-menu">
+        <div id="account">
+          <ul>
+              <a class="login" href="/demo/login" style="float:right;">ログイン</a>
+          </ul>
+          <a class="home" href="/demo/">ホーム</a>
+          <a class="projects" href="/demo/projects">プロジェクト</a>
+          <a class="help" href="https://www.redmine.org/guide">ヘルプ</a>
+            <a class="far-end-controll-panel" href="/demo/my_redmine/index">MyRedmine</a>   
+        </div>
+    </div>
+
+    <div id="header">
+        <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+        <div id="quick-search">
+            <form action="/demo/projects/demo/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            
+            <label for='q'>
+              <a accesskey="4" href="/demo/projects/demo/search" style="float:right;">：検索</a>
+            </label>
+            <input type="text" name="q" id="q" size="20" class="small" accesskey="f" style="float:right;"/>
+    </form>        
+        </div>
+
+        <h1><span class="current-project">MyPage</span></h1>
+
+        <div id="main-menu" class="tabs">
+            <ul>
+                <a class="overview_selected" href="/demo/projects/demo" style="float:left;">概要</a>
+                <a class="activity" href="/demo/projects/demo/activity">活動</a>
+                <a class="roadmap" href="/demo/projects/demo/roadmap">ロードマップ</a>
+                <a class="issues" href="/demo/projects/demo/issues">チケット</a>
+                <a class="gantt" href="/demo/projects/demo/issues/gantt">ガントチャート</a>
+                <a class="calendar" href="/demo/projects/demo/issues/calendar">カレンダー</a>
+                <a class="news" href="/demo/projects/demo/news">ニュース</a>
+                <a class="documents" href="/demo/projects/demo/documents">文書</a>
+                <a class="wiki" href="/demo/projects/demo/wiki">Wiki</a>
+                <a class="boards" href="/demo/projects/demo/boards">フォーラム</a>
+                <a class="files" href="/demo/projects/demo/files">ファイル</a>
+            </ul>
+        <div class="tabs-buttons" style="display:none;">
+          <button class="tab-left" onclick="moveTabLeft(this); return false;">
+          </button>
+          <button class="tab-right" onclick="moveTabRight(this); return false;">
+          </button>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
